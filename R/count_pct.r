@@ -81,6 +81,6 @@ count_pct_diff.levels<-function(dat.as.factor,res_list=NULL){
 
 count_pct_format<-function(m,dp,p1,p2){
   m[,2]<-m[,2]*100
-  m<-round(m,dp)
+  m<-m%>%map(.,round(dp))
   data.frame(paste0(format(m[,1],big.mark=",",trim=TRUE),p1,format(m[,2],big.mark=",",trim=TRUE),p2))
 }
