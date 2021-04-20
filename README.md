@@ -55,7 +55,7 @@ dat<-data.frame(dat,Study_Design=sample(0:2,dim(dat)[1],replace=TRUE))%>%tibble 
 group_var<-"Study_Design"
 ```
 
-<span style="color:green">Step 2 - Function Test </span>:
+<span style="color:green">Step 3 - Function Test </span>:
 
 <h3>1. data.split.r </h3>
 
