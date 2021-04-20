@@ -72,7 +72,6 @@ data.split(dat,par$Parameters,All_group,By_group,group_var,TRUE)->d
 <h3>2. get.stat.par.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 get.stat.par(par,par$Parameters)->p
 ```
 
@@ -80,7 +79,6 @@ get.stat.par(par,par$Parameters)->p
 <h3>3. mean_sd.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 mean_sd(d,as.vector(p[["Mean.Sd."]]),2,"(",")")
 mean_sd(d,as.vector(p[["Mean.Sd."]]),3,"±","")
 ```
@@ -89,7 +87,6 @@ mean_sd(d,as.vector(p[["Mean.Sd."]]),3,"±","")
 <h3>4. median_iqr.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 median_iqr(d,as.vector(p[["Median.IQR."]]),2,"[",",","]")
 median_iqr(d,as.vector(p[["Median.IQR."]]),3,"[",",","]")
 ```
@@ -99,7 +96,6 @@ median_iqr(d,as.vector(p[["Median.IQR."]]),3,"[",",","]")
 <h3>5. count_pct.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 count_pct(d,as.vector(p[["Count.Pct."]]),2,"(","%)")
 ```
 
@@ -108,7 +104,6 @@ count_pct(d,as.vector(p[["Count.Pct."]]),2,"(","%)")
 <h3>6. missing_pct.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 missing_pct(d,as.vector(p[["Missing.Pct."]]),2,",","%")
 ```
 
@@ -116,7 +111,6 @@ missing_pct(d,as.vector(p[["Missing.Pct."]]),2,",","%")
 <h3>7. Table1.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 Table1(dat,par,All_group,By_group,group_var,
        par$Parameters,
        mean.sd.dp = 2, mean.sd.p1 = "±", mean.sd.p2 = "",
