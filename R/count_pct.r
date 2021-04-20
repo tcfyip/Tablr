@@ -41,7 +41,6 @@ count_pct<-function(dat,count.pct.pars,dp,p1,p2){
     summary<-count_pct_diff.levels(dat.as.factor)
 
     summary%>%
-      mutate(across(.cols=where(is.numeric),round,dp))%>%
       count_pct_format(.,p1,p2)%>%
       data.frame(row.names = rownames(summary))%>%
       set_names("Value")%>%
@@ -80,6 +79,8 @@ count_pct_diff.levels<-function(dat.as.factor,res_list=NULL){
 }
 
 
-count_pct_format<-function(m,p1,p2){
+count_pct_format<-function(m,dp,p1,p2){
+  m[,2]<-m[,2]*100
+  m<-round(m,dp)
   data.frame(paste0(format(m[,1],big.mark=",",trim=TRUE),p1,format(m[,2],big.mark=",",trim=TRUE),p2))
 }
