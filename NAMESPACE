@@ -1,4 +1,3 @@
-exportPattern("^[[:alpha:]]+")
 import(tibble)
 import(purrr)
 import(tidyr)
