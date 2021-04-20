@@ -28,7 +28,7 @@
 #' # count_pct(d,count.pct.p,count.pct.dp,count.pct.p1,count.pct.p2)}
 #' @export
 count_pct<-function(dat,count.pct.pars,dp,p1,p2){
-
+  
   options(pillar.sigfig=dp+2)
   # dat := nested tibble
   # count.pct.pars := vector of parameter name needs mean,sd
@@ -37,29 +37,29 @@ count_pct<-function(dat,count.pct.pars,dp,p1,p2){
     dat.as.factor<-.x%>%
       select(c(!!count.pct.pars,-matches(!!group_var)))%>%
       mutate(across(.cols=everything(),as.factor))
-
+    
     summary<-count_pct_diff.levels(dat.as.factor)
-
+    
     summary%>%
-      count_pct_format(.,p1,p2)%>%
+      count_pct_format(.,dp,p1,p2)%>%
       data.frame(row.names = rownames(summary))%>%
       set_names("Value")%>%
       rownames_to_column(var="Parameters")%>%
       separate(.,col="Parameters",into=c("Parameters","levels"),sep=":")%>%
       add_column(Statistics=paste("Count",p1,"Pct",p2,sep=""),.after="Parameters")
-
+    
   } else count_pct(.x,count.pct.pars,dp,p1,p2)})
 }
 
 count_pct_diff.levels<-function(dat.as.factor,res_list=NULL){
   if(is.null(res_list)){res_list<-list()}
-
+  
   cond2<-dat.as.factor%>%map(levels)%>%map_dbl(length)%>%match(.,.[which.max(.)])%>%ifelse(is.na(.),0,.)
   selected.dat<-dat.as.factor%>%
     select(eval(cond2*(1:length(cond2))))
   dat.as.factor.levels<-selected.dat%>%map(levels)%>%unlist
   max.level<-selected.dat%>%map(levels)%>%map_dbl(length)%>%max(na.rm=TRUE)
-
+  
   summary<-selected.dat%>%
     summarise(across(.cols=everything(),.fns=list(count=table)))%>%
     mutate(across(.cols=everything(),.fns=list(pct=prop.table)))%>%
@@ -69,18 +69,18 @@ count_pct_diff.levels<-function(dat.as.factor,res_list=NULL){
     data.frame(row.names = paste(
       rep(selected.dat%>%names,each=max.level),dat.as.factor.levels,sep=":"
     ))%>%set_names(c("count","percentage"))
+  
 
-
-
+  
   res_list[[res_list%>%length+1]]<-summary
-
+  
   if(cond2%>%match(.,1)%>%is.na%>%any) count_pct_diff.levels(dat.as.factor%>%select(eval((!cond2)*(1:length(cond2)))),res_list)
   else if(!is.null(res_list)) return(res_list%>%do.call(bind_rows,.))
 }
 
 
 count_pct_format<-function(m,dp,p1,p2){
-  m[,2]<-m[,2]*100
-  m<-m%>%map(.,round(dp))
+ m[,2]<-m[,2]*100
+  m<-round(m,dp)
   data.frame(paste0(format(m[,1],big.mark=",",trim=TRUE),p1,format(m[,2],big.mark=",",trim=TRUE),p2))
 }
