@@ -12,7 +12,7 @@ R package for Table1
 1. haven - read sav
 2. data.table - fast read spss
 
-<span style="color:green">Step 1 - install Tablr package </span>:
+<span style="color:green">Step 1 - Install Tablr package </span>:
 
 
 ```{r eval=FALSE}
