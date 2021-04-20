@@ -27,7 +27,7 @@
 #' # median.iqr.p2<-","
 #' #' # median.iqr.p3<-")"
 #' # median_iqr(d,median.iqr.p,median.iqr.dp,median.iqr.p1,median.iqr.p2,median.iqr.p3)}
-#'
+#' @export
 median_iqr<-function(dat,mean.sd.pars,dp,p1,p2,p3){
   options(pillar.sigfig=dp+2)
   # dat := nested tibble

@@ -26,7 +26,7 @@
 #' # missing.pct.p1<-"("
 #' # missing.pct.p2<-")"
 #' # missing_pct(d,missing.pct.p,missing.pct.dp,missing.pct.p1,missing.pct.p2)}
-#'
+#' @export
 missing_pct<-function(dat,missing.pct.pars,dp,p1,p2){
   options(pillar.sigfig=dp+2)
   # dat := nested tibble

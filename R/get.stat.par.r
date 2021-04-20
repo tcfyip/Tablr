@@ -15,7 +15,7 @@
 #' @param par.name a \code{character} vector which stores your parameter name in your cohort dataset.
 #' @examples \dontrun{
 #' # get.stat.par(par,par$Parameters)}
-#'
+#' @export
 get.stat.par<-function(par.df,par.name){
   # par.df := data frame
   # par.name := name of the column in par.df which stores parameter name

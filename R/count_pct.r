@@ -26,7 +26,7 @@
 #' # count.pct.p1<-"("
 #' # count.pct.p2<-")"
 #' # count_pct(d,count.pct.p,count.pct.dp,count.pct.p1,count.pct.p2)}
-#'
+#' @export
 count_pct<-function(dat,count.pct.pars,dp,p1,p2){
 
   options(pillar.sigfig=dp+2)

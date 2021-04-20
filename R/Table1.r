@@ -67,7 +67,7 @@
 #' # midp,mip1,mip2,mip3,#median_iqr
 #' # cpdp,cpp1,cpp2,#count_pct
 #' # mpdp,mpp1,mpp2)}
-#'
+#' @export
 Table1<-function(dat,pars,All_group,By_group,group_var=NULL,#data.split
                  par.name,#get.stat.par
                  mean.sd.dp,mean.sd.p1,mean.sd.p2,#mean_sd

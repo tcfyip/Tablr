@@ -37,7 +37,7 @@
 #' # group_var<-"Study_Design"
 #' # group_var_disname<-"Study Design"
 #' data.split(dat,par,All_group,By_group,"Study_Design",TRUE)}
-#'
+#' @export
 data.split<-function(dat,pars,All_group,By_group,group_var=NULL,unnest=FALSE){
   # dat:= data frame
   # pars := parameters in vector

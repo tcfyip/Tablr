@@ -26,7 +26,7 @@
 #' # mean.sd.p1<-"("
 #' # mean.sd.p2<-")"
 #' # mean_sd(d,mean.sd.p,mean.sd.dp,mean.sd.p1,mean.sd.p2)}
-#'
+#' @export
 mean_sd<-function(dat,mean.sd.pars,dp,p1,p2){
   options(pillar.sigfig=dp+2)
   # dat := nested tibble
