@@ -1,9 +1,5 @@
 # Tablr
 R package for Table1 
----
-title: "Tablr Vignette"
-output: html_document
----
 
 <h2>This Tablr Vignette will introduce all function in the Tablr package.</h2> 
 
