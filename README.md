@@ -60,7 +60,6 @@ group_var<-"Study_Design"
 <h3>1. data.split.r </h3>
 
 ```{r eval=FALSE}
-# data.split(dat,par,All_group,By_group,"Study_Design",TRUE)
 data.split(dat,par$Parameters,All_group,By_group,group_var,TRUE)->d
 ```
 
